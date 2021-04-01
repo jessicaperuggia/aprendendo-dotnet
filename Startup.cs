@@ -24,23 +24,12 @@ namespace MvcMovie
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
 
-        public void ConfigureServices(IServiceCollection services)
+      public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            
             services.AddDbContext<MvcMovieContext>(options =>
-            {
-                var connectionString = Configuration.GetConnectionString("MvcMovieContext");
-
-                if (Environment.IsDevelopment())
-                {
-                    options.UseSqlite(connectionString);
-                }
-                else
-                {
-                    options.UseSqlServer(connectionString);
-                }
-            });
+                    options.UseSqlite(Configuration.GetConnectionString("MvcMovieContext")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
