@@ -69,3 +69,16 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+#movies-img{
+  border-radius: 50%;
+  border-color: #1861ac;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#movies-img img {
+  height: 250px;
+  width: 200px;
+}
